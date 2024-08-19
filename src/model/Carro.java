@@ -1,8 +1,9 @@
 public class Carro {
 
     private String modelo;
-    private Motor motor;
+    public Motor motor;
     private TanqueCombustivel tanque;
+    public int kmRodados = 0;
 
     public Carro(String modelo, TipoCombustivel tipoCombustivel, int consumoMotor, int capacidadeTanque) {
         this.modelo = modelo;
@@ -45,9 +46,24 @@ public class Carro {
         if (verificaSePodeViajar(distancia) >= distancia) {
             motor.percorre(distancia);
             tanque.gasta(motor.combustivelNecessario(distancia));
+            setKmRodados(distancia);
+            getkmRodados();
             return true;
         }
         return false;
+    }
+
+    public int getkmRodados(){
+        if(motor.getConsumo() >= 10){
+            if(kmRodados >= 5000){
+                kmRodados = 0;
+                motor.diminuirConsumo();
+            }
+        }
+        return kmRodados;
+    }
+    public void setKmRodados(int kmRodados){
+        this.kmRodados+=kmRodados;
     }
 
     @Override

@@ -2,19 +2,23 @@
 
 RESPOSTAS:
 
-1) Só instanciamos o objeto no APP
+1) Instanciamos o objeto no APP e criamos a viagem
    
-2) Só instanciamos o objeto no APP e adicionamos o Diesel ao enum
+2) Instanciamos o objeto no APP, criamos a viagem e adicionamos o Diesel ao enum
 
-3) Só instanciamos o objeto no APP
+3) Instanciamos o objeto no APP e criamos a viagem
 
-4) 
-   Crie um novo modelo de carro chamado "SUVFlex". Este é FLEX (gasolina ou
-   alcool) e consome 8 Km/lt de gasolina ou 6 Km/lt de alcool. O tanque é "FLEX"
-   e tem 65 litros de capacidade. Por simplicidade assuma que o conteúdo do tanque 
-   é sempre o do último abastecimento.
-
-5) Crie um novo modelo de carro chamado "Econo". É movido a gasolina, tanque tem
-   capacidade para 55 litros e caracterizam-se por ser extremamente econômicos.
-   O consumo deste quando novo é de 20 Km/lt, porém este consumo reduz 1 Km/lt a
-   cada 5000 Km até que se estabiliza em 10 Km/lt.
+4) Instanciamos o objeto no APP e criamos suas respectivas viagens, nas quais foi gasto primeiramente todo o tanque a
+base de gasolina, e depois com álcool 
+   
+5) Instanciamos o objeto no APP e criamos a viagem;
+   Criamos o dominuirConsumo => 20, 19, ... 10
+   Criamos getKmRodados => Para verificar os 5000 km rodados para que seja ṕossível diminuir o consumoMotor
+   Além de quando chegarmos aos 10 km no consumoMotor, ele se estabilizará através de um if
+                           if(motor.getConsumo() >= 10){
+                              if(kmRodados >= 5000){
+                                 kmRodados = 0;
+                                 motor.diminuirConsumo();
+                              }
+                           }
+   Mudamos para public o motor => Para alterar o consumoMotor 

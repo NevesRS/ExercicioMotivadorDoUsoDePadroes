@@ -79,17 +79,20 @@ public class App {
         System.out.println(econo);
         System.out.println("\n\n----------------");
         System.out.println("\nAbastencendo carro econo com gasolina");
-        suvFlex.abastece(TipoCombustivel.GASOLINA, 55);
+        econo.abastece(TipoCombustivel.GASOLINA, 55);
         System.out.println(econo);
         System.out.println("\nViajando com o carro econo");
-        econo.viaja(1300);
-        econo.abastece(TipoCombustivel.GASOLINA, 65);
-        econo.viaja(1300);
-        econo.abastece(TipoCombustivel.GASOLINA, 65);
-        econo.viaja(1300);
-        econo.abastece(TipoCombustivel.GASOLINA, 65);
         econo.viaja(1100);
-        econo.abastece(TipoCombustivel.GASOLINA, 65);
+        econo.abastece(TipoCombustivel.GASOLINA, 55);
+        econo.viaja(1100);
+        econo.abastece(TipoCombustivel.GASOLINA, 55);
+        econo.viaja(1100);
+        econo.abastece(TipoCombustivel.GASOLINA, 55);
+        econo.viaja(1100);
+        econo.abastece(TipoCombustivel.GASOLINA, 55);
+        econo.viaja(1100);
+        System.out.println(econo.getkmRodados());
+        System.out.println(econo.motor.getConsumo());
         //System.out.println(econo);
 
         //Jeito chatGPT

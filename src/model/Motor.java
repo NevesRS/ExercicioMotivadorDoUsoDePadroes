@@ -12,6 +12,9 @@ public class Motor {
     public int getConsumo() {
         return this.consumo;
     }
+    public void diminuirConsumo(){
+        this.consumo = this.consumo-1;
+    }
 
     public TipoCombustivel getTipoMotor(){
         return this.tipoMotor;
