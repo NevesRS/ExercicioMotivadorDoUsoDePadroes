@@ -82,8 +82,92 @@ public class App {
         suvFlex.abastece(TipoCombustivel.GASOLINA, 55);
         System.out.println(econo);
         System.out.println("\nViajando com o carro econo");
-        econo.viaja(340);
-        econo.viaja(200);
-        System.out.println(econo);
+        econo.viaja(1300);
+        econo.abastece(TipoCombustivel.GASOLINA, 65);
+        econo.viaja(1300);
+        econo.abastece(TipoCombustivel.GASOLINA, 65);
+        econo.viaja(1300);
+        econo.abastece(TipoCombustivel.GASOLINA, 65);
+        econo.viaja(1100);
+        econo.abastece(TipoCombustivel.GASOLINA, 65);
+        //System.out.println(econo);
+
+        //Jeito chatGPT
+        /*
+         * public class Carro {
+
+private String modelo;
+private Motor motor;
+private TanqueCombustivel tanque;
+
+public Carro(String modelo, TipoCombustivel tipoCombustivel, int consumoMotor, int capacidadeTanque) {
+this.modelo = modelo;
+motor = new Motor(tipoCombustivel, consumoMotor);
+tanque = new TanqueCombustivel(tipoCombustivel, capacidadeTanque);
+}
+
+public String getModelo() {
+return modelo;
+}
+
+public int getCombustivelDisponivel() {
+return tanque.getCombustivelDisponivel();
+}
+
+// Retorna a quantidade efetivamente abastecida
+public int abastece(TipoCombustivel tipoCombustivel, int quantidade) {
+int capacidadeLivre = tanque.getCapacidade() - tanque.getCombustivelDisponivel();
+if (capacidadeLivre < quantidade) {
+tanque.abastece(tipoCombustivel, capacidadeLivre);
+return capacidadeLivre;
+} else {
+tanque.abastece(tipoCombustivel, quantidade);
+return quantidade;
+}
+}
+
+// Retorna a distancia que consegue viajar com o combustivel remanescente
+public int verificaSePodeViajar(int distancia) {
+int combustivelNecessario;
+if ("Econo".equals(modelo)) {
+combustivelNecessario = calculaConsumoEcono(distancia);
+} else {
+combustivelNecessario = motor.combustivelNecessario(distancia);
+}
+if (tanque.getCombustivelDisponivel() >= combustivelNecessario) {
+return distancia;
+} else {
+return tanque.getCombustivelDisponivel() * motor.getConsumo();
+}
+}
+
+// Método específico para o consumo do Econo
+private int calculaConsumoEcono(int distancia) {
+// Ajusta o consumo do Econo baseado na quilometragem
+int consumoInicial = 20;
+int consumoFinal = 10;
+int quilometragem = motor.getQuilometragem();
+int consumoAtual = consumoInicial - (quilometragem / 5000);
+consumoAtual = Math.max(consumoAtual, consumoFinal);
+return distancia / consumoAtual;
+}
+
+// Retorna true se conseguiu viajar
+public boolean viaja(int distancia) {
+if (verificaSePodeViajar(distancia) >= distancia) {
+motor.percorre(distancia);
+tanque.gasta(motor.combustivelNecessario(distancia));
+return true;
+}
+return false;
+}
+
+@Override
+public String toString() {
+return "Carro:\n Modelo=" + modelo + "\n Motor=" + motor + "\n Tanque=" + tanque;
+}
+}
+         */
+        
     }
 }
